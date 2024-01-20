@@ -42,10 +42,25 @@ public class Fraction {
          // create a new instance
          // Fraction *frac = [[Fraction alloc] init];
          Fraction frac = new Fraction();
+         int argX = 0;
+         int argY = 0;
+         if (args.length == 2){
+
+            try {
+              argX = Integer.parseInt(args[0]);
+              argY = Integer.parseInt(args[1]);
+            } catch (Exception e) {
+              System.out.println("Arguments: " + args[0] + ", " + args[1] + " must be integers.");
+              System.exit(1);
+            }
+            System.out.println(argX + " * " + argY + " = " + argX * argY);
+          } else {
+              System.out.println("Exactly 2 arguments should be provided.\n gradle run --args='1 2'");
+         }
 
          // set the values
-         frac.setNumerator(1);
-         frac.setDenominator(3);
+         frac.setNumerator(argX);
+         frac.setDenominator(argY);
 
          // print it
          System.out.print("The fraction is: ");
